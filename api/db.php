@@ -1,6 +1,8 @@
 <?php
 function dd($arr){
-    echo '<pre>'. print_r($arr) . '</pre>';
+    echo '<pre>';
+    print_r($arr);
+    echo '</pre>';
 }
 
 $dsn="mysql:host=localhost;charset=utf8;dbname=s1100422";
@@ -10,7 +12,6 @@ $pdo=new PDO($dsn,'s1100422','s1100422');
 function select_one($table,$id){
     global $pdo;
     $sql="SELECT * FROM `$table` WHERE `id`='$id'";
-    
     return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -30,9 +31,7 @@ function select_all($table,...$arg){
     }
     if(isset($arg[1])){
         $sql .= $arg[1];
-    }
-    dd($sql); //TEST
-    
+    }  
     $rows=$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     return $rows;
     //return $pdo->query($sql)->fetchAll();
@@ -65,20 +64,13 @@ function update($table,$column,$where){
     }
     $sql_set=trim($sql_set,',');
 
-    dd($sql_set); //TEST
-
     $sql_where='';
     foreach ($where as $key => $value) {
         $sql_where .= "`$key` = '$value' AND ";
     }
     $sql_where=mb_substr($sql_where,0,mb_strlen($sql_where)-5);
 
-    dd($sql_where); //TEST
-
     $sql="UPDATE `$table` SET $sql_set WHERE $sql_where";
-    
-    dd($sql); //TEST
-
     $pdo->exec($sql);
 }
 
