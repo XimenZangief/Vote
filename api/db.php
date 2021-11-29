@@ -11,7 +11,18 @@ $pdo=new PDO($dsn,'s1100422','s1100422');
 //取出指定資料表的指定資料
 function select_one($table,$id){
     global $pdo;
-    $sql="SELECT * FROM `$table` WHERE `id`='$id'";
+    $sql="SELECT * FROM `$table` WHERE "; //※SQL語法間空白注意※
+
+    if(is_array($id[0])){  //判斷參數是否為陣列
+        //是，使用foreach傳值，並在陣列間塞入字串" AND "
+        foreach($id[0] as $key=>$value){  
+            $tmp[]="`$key`='$value'";
+        }            
+        $sql .= "where " . implode(" AND ",$tmp);
+    }else{  //否，直接傳值
+        $sql .= "`id`='$id'";
+    }
+    
     return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
