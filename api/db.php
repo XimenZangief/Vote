@@ -27,6 +27,21 @@ function select_one($table,$id){
     return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
+//計算符合條件的資料數
+function calc($table,$array){
+    global $pdo;
+    $sql="SELECT count(*) FROM `$table` WHERE "; //※SQL語法間空白注意※
+
+    if(is_array($array[0])){  //判斷參數是否為陣列
+        //是，使用foreach傳值，並在陣列間塞入字串" AND "
+        foreach($array[0] as $key=>$value){  
+            $tmp[]="`$key`='$value'";
+        }            
+        $sql .= "where " . implode(" AND ",$tmp);
+    }    
+    return $pdo->query($sql)->fetchColumn();
+    }
+
 //取出指定資料表的所有資料，...$arg是不固定數量value
 function select_all($table,...$arg){
     global $pdo;
