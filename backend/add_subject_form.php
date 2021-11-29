@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <form action="api/save_subject.php" method="POST" class="col-6 m-auto p-">
+  <form action="../api/save_subject.php" method="POST" class="col-6 m-auto p-2">
     <label>主題: <input type="text" name="subject"></label>
     <label class="list-group-item">option1: <input type="text" name="options[]"></label>
     <label class="list-group-item">option2: <input type="text" name="options[]"></label>

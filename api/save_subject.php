@@ -1,6 +1,6 @@
 <?php
 
-include_once "./db.php";
+include_once "db.php";
 print_r($_POST['subject']);
 echo '<hr>';
 
