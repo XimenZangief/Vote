@@ -1,3 +1,4 @@
+<?php include_once "./api/db.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +14,12 @@
 <body>
 <?php
 
-$do=(isset($_GET['do'])) ? $_GET['do'] : 'add_subject_form';
-$file=$do.".php";
+$do=(isset($_GET['do'])) ? $_GET['do'] : 'show_vote_list';
+$file="./frontend/" .$do.".php";
 if(file_exists($file)){
     include $file;
 }else{
-    include "./add_subject_form.php";
+    include "./frontend/show_vote_list.php";
 }
 ?>
 <div class="bg-primary fixed-bottom">my iron body is invincible, so be ware</div>

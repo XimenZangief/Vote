@@ -1,12 +1,13 @@
 <?php
-function dd($arr){
+
+$dsn="mysql:host=localhost;charset=utf8;dbname=s1100422";
+$pdo=new PDO($dsn,'s1100422','s1100422');
+
+function dd($arr){ //direct dump
     echo '<pre>';
     print_r($arr);
     echo '</pre>';
 }
-
-$dsn="mysql:host=localhost;charset=utf8;dbname=s1100422";
-$pdo=new PDO($dsn,'s1100422','s1100422');
 
 //取出指定資料表的指定資料
 function select_one($table,$id){
