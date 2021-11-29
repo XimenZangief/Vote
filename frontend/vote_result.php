@@ -12,9 +12,9 @@ $rows=q($sql);
 <h1><?= $rows[0]['topic']; ?></h1>
 <?php
     foreach ($rows as $row) {
-        echo '<li>';
+        echo "<li class='list-group-item'>";
         echo "<span>{$row['opt']}</span>";
-        echo "<span>{$row['count']}</span>";
-        echo '</li>';
+        echo "<span class='badge badge-info float-right'>{$row['count']}</span>";
+        echo "</li>";
     }
 ?>
