@@ -1,4 +1,10 @@
-<?php include_once "./api/db.php"; ?>
+<?php include_once "./api/db.php"; 
+if(!isset($_SESSION['user'])){
+    to("../index.php");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,49 +18,31 @@
 </head>
 
 <body>
-    <!-- 直接用mb-0把jumbotron的mb-2給無情覆寫 -->
-    <div class="jumbotron p-0 mb-0" style="overflow:hidden;height:250px">
+
+    <div class="jumbotron p-0" style="overflow:hidden;height:250px">
         <a href="index.php">
             <div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-ride="carousel">
                 <div class="carousel-inner position-absolute" style="top:-250px">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100 bg-primary" src="" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100 bg-secondary" src="" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100 bg-info" src="" alt="Third slide">
-                    </div>
+                    <?php
+                    $images=select_all('ads');
+
+                    foreach ($images as $img) {
+                        
+                    }
+                    ?>
                 </div>
             </div>
         </a>
     </div>
-    <?php
-    if(isset($_SESSION['err'])){
-        echo "帳號密碼錯誤";
-    }
-    if(isset($_SESSION['user'])){
-        echo "<span>welcome - {$_SESSION['user']} -</span>";
-    ?>
-        <a href="logout.php"><button>登出</button></a>
-    <?php
-    }else{
-    ?>
-    <nav>
-        <a href="?do=login">會員登入</a>
-        <a href="?do=reg">註冊新會員</a>
-    </nav>
-    <?php } ?>
     <div class="container">
         <?php
 
-        $do = (isset($_GET['do'])) ? $_GET['do'] : 'show_vote_list';
+        $do = (isset($_GET['do'])) ? $_GET['do'] : 'manager_vote.php';
         $file = "./frontend/" . $do . ".php";
         if (file_exists($file)) {
             include $file;
         } else {
-            include "./frontend/show_vote_list.php";
+            include "./frontend/manager_vote.php";
         }
         ?>
         <div class="bg-primary fixed-bottom">my iron body is invincible, so be ware</div>

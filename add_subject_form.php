@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <form action="../api/save_subject.php" method="POST" class="col-6 m-auto p-2">
+  <form action="api/save_subject.php" method="POST" class="col-6 m-auto p-">
     <label>主題: <input type="text" name="subject"></label>
     <label class="list-group-item">option1: <input type="text" name="options[]"></label>
     <label class="list-group-item">option2: <input type="text" name="options[]"></label>
@@ -32,17 +32,3 @@
 </body>
 
 </html>
-
-
-<h1>問卷主題</h1>
-<form action="../api/new_subject.php" method="POST" class="col-6 m-auto p-2">
-    <label>主題: <input type="text" name="subject" onchange="api/tmp.php"></label>
-    <!-- 增加選項 -->
-    <a href="/api/new_option.php">
-      <input type="button" value="+">
-    </a>
-    <?php
-    
-    ?>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>

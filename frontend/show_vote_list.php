@@ -7,9 +7,13 @@ echo "<ol>";
 foreach ($subjects as $key => $value) {//投票結果顯示
     if (calc('options', ['topic_id' => $value['id']]) > 0) {
         echo "<li class='list-group-item'>";
+        if(isset($_SESSION['user'])){
         echo "<a class='d-inline-block col-md-8 href='index.php?do=vote.php&id={$value['id']}'>";
         echo $value['topic'];
         echo "</a></li>";
+        }
+    }else{
+        echo "<span>" .$value['topic']. "</span>";
     }
 }
 
