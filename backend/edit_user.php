@@ -5,7 +5,7 @@ $user = $pdo->query($sql)->fetch();
 ?>
 <h2 class="text-center mt-3 font-weight-bold">編輯會員資料</h2>
 <div class="container" style="height:508px">
-  <form action="../api/back_edit_user.php?user=<?= $user['account'] ?>" method="post" id="regForm" class="text-center">
+  <form action="../api/back_edit_user.php?id=<?= $user['id'] ?>" method="POST" id="regForm" class="text-center">
     <table class="m-auto">
       <tr>
         <input type="hidden" name="id" value="<?=$user['id']?>">
@@ -36,6 +36,15 @@ $user = $pdo->query($sql)->fetch();
       <tr>
         <td>生日 : </td>
         <td><input type="date" name="birthday" value="<?= $user['birthday']; ?>"></td>
+      </tr>
+      <tr>
+        <td>是否為admin: </td>
+        <?php
+          if ($user['admin'] == 1) { ?>
+        <td><input type="checkbox" name="admin" value="1" checked></td>
+        <?php } else { ?>
+        <td><input type="checkbox" name="admin" value="0"></td>
+        <?php } ?>
       </tr>
     </table>
     <div class="my-3"><input onclick="alert('修改成功');" type="submit" value="確認送出"></div>

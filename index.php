@@ -63,6 +63,10 @@
 
     //判斷是否有登入的紀錄，根據登入狀況，顯示不同的功能按鈕
     if (isset($_SESSION['user'])) {
+      $user = find("users", ["account" => $_SESSION['user']]);
+      if($user['admin']==1){
+        to("./backend/index.php");
+      }
       echo "<span class='pr-5'>歡迎！{$_SESSION['user']}</span>";
     ?>
       <div>

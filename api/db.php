@@ -124,13 +124,10 @@ function to($url){
 function q($sql){
     global $pdo;
     return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
-
 }
-
 
  function dd($array){
      echo "<pre>";
      print_r($array);
      echo "</pre>";
  }
-?>

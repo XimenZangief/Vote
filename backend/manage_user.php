@@ -1,4 +1,5 @@
 <h2 class="text-center font-weight-bold">會員管理</h2>
+<?php include_once "../api/db.php"; ?>
 <table class="table container-fluid text-center">
     <tr>
         <td class='col-4'>會員帳號</td>
