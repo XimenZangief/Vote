@@ -1,23 +1,23 @@
 <?php
-
 $id = $_GET['id'];
-$subject = select_one('topics', $id);
-$options = select_all('options', ['topic_id' => $id]);
+$subject = find('topics', $id);
+
+$options = all('options', ['topic_id' => $id]);
 
 ?>
 
-<h1><?= $subject['topics']; ?> </h1>
-
-<form action="../api/save_vote.php" method="POST">
-    <ol>
+<h1><?= $subject['topic']; ?></h1>
+<ol class='list-group'>
+    <form action="./api/save_vote.php" method="post">
         <?php
         foreach ($options as $key => $opt) {
-            echo '<li>';
-            echo "<input type='checkbox' name='opt' value='{$opt['id']}'>"; //name相同為單選，不同為多選
+            echo "<label class='list-group-item list-group-item-success list-group-item-action'>";
+            //若主題為多選，設定為陣列name='opt[]'
+            echo "<input type='radio' name='opt' value='{$opt['id']}'>";
             echo $opt['opt'];
-            echo '</li>';
+            echo "</label>";
         }
         ?>
-    </ol>
-    <button type="submit" class="btn btn-primary">Submit</button>
+</ol>
+<input class='btn btn-info mt-3' type="submit" value="投票">
 </form>

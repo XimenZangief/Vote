@@ -1,30 +1,33 @@
-<h1>投票清單</h1>
-
+<h1>列出所有的問題</h1>
 <?php
-
-$subjects = select_all('topics');
-echo "<ol>";
-foreach ($subjects as $key => $value) {//投票結果顯示
-    if (calc('options', ['topic_id' => $value['id']]) > 0) {
+$subjects = all('topics');
+echo "<ol class='list-group'>";
+foreach ($subjects as $key => $value) {
+    if (rows('options', ['topic_id' => $value['id']]) > 0) {
         echo "<li class='list-group-item'>";
-        if(isset($_SESSION['user'])){
-        echo "<a class='d-inline-block col-md-8 href='index.php?do=vote.php&id={$value['id']}'>";
-        echo $value['topic'];
-        echo "</a></li>";
+        //題目
+        //有登入的會員才能使用投票功能
+        if (isset($_SESSION['user'])) {
+            echo "<a class='d-inline-block col-md-8' href='index.php?do=vote&id={$value['id']}'>";
+            echo $value['topic'];
+            echo "</a>";
+        } else {
+            echo "<span class='d-inline-block col-md-8'>" . $value['topic'] . "</span>";
         }
-    }else{
-        echo "<span>" .$value['topic']. "</span>";
+
+        //總投票數顯示
+        $count = q("select sum(`count`) as '總計' from `options` where `topic_id`='{$value['id']}'");
+        echo "<span class='d-inline-block col-md-2 text-center'>";
+        echo $count[0]['總計'];
+        echo "</span>";
+
+        //看結果按鈕
+        echo "<a href='?do=vote_result&id={$value['id']}' class='d-inline-block col-md-2 text-center'>";
+        echo "<button class='btn btn-primary'>觀看結果</button>";
+        echo "</a>";
+        echo "</li>";
     }
 }
-
-$count=q("SELECT sum(`count`) from `options` where `topic_id`='{$value['id']}'");
-echo "<span class='d-inline-block col-md-8 text-center'>";
-echo $count[0]['總計'] . "</span>";
-
-echo "<a href='?do=vote_reuslt&id={$value['id']}' class='d-inline-block col-md-8 text-center'>";
-echo "<button class='btn btn-primary'>觀看結果</button>";
-echo "</a></li>";
-
 echo "</ol>";
 
 ?>
