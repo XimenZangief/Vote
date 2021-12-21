@@ -1,5 +1,5 @@
 <h2 class="text-center font-weight-bold">註冊會員</h2>
-<form action="./api/reg.php" method="post" id="regForm">
+<form action="./api/reg.php" method="POST" id="regForm">
     <table class='table m-auto w-auto'>
         <tr>
             <td>帳號：</td>

@@ -26,10 +26,10 @@ if (!isset($_SESSION['user'])) {
 <body>
 
   <!-- 大字報圖片輪播+回首頁 -->
-  <div class="jumbotron p-0 mb-0" style="overflow:hidden;height:250px">
+  <div class="jumbotron p-0 mb-0" style="height:250px">
     <a href="index.php">
       <div id="carouselExampleSlidesOnly" class="carousel slide position-relative" data-ride="carousel">
-        <div class="carousel-inner position-absolute" style="top:-250px">
+        <div class="carousel-inner position-absolute">
           <?php
           //取得資料表中狀態為1的廣告圖片
           $images = all('ad', ['sh' => 1]);
@@ -43,7 +43,7 @@ if (!isset($_SESSION['user'])) {
             }
 
             //帶入圖片的檔名及資訊
-            echo "  <img class='d-block w-100' src='../image/{$image['name']}' title='{$image['intro']}'>";
+            echo "  <img class='d-block img-fluid' src='../image/{$image['name']}' title='{$image['intro']}'>";
             echo "</div>";
           }
           ?>
