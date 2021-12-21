@@ -61,7 +61,7 @@ if (!isset($_SESSION['user'])) {
     ?>
     <div>
       <a class='px-2' href="?do=manage_vote">問卷管理</a>
-      <a class='px-2' href="?do=edit_user">會員管理</a>
+      <a class='px-2' href="?do=manage_user">會員管理</a>
       <a class='px-2' href="?do=ad">廣告管理</a>
       <a class="btn btn-sm btn-primary mx-1" href="../logout.php">登出</a>
     </div>

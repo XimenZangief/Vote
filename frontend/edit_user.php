@@ -1,11 +1,11 @@
 <?php
-$sql = "SELECT * from `users` where `id`='{$_GET['id']}'";
+$sql = "SELECT * from `users` where `account`='{$_SESSION['user']}'";
 $user = $pdo->query($sql)->fetch();
 // dd($user);
 ?>
 <h2 class="text-center mt-3 font-weight-bold">編輯會員資料</h2>
 <div class="container" style="height:508px">
-  <form action="../api/back_edit_user.php?user=<?= $user['account'] ?>" method="post" id="regForm" class="text-center">
+  <form action="../api/edit_user.php?user=<?= $user['account'] ?>" method="post" id="regForm" class="text-center">
     <table class="m-auto">
       <tr>
         <input type="hidden" name="id" value="<?=$user['id']?>">

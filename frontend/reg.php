@@ -31,5 +31,5 @@
             </td>
         </tr>
     </table>
-    <div class='text-center'><input type="submit" value="確認送出"> </div>
+    <div class='text-center'><input onclick="alert('註冊成功');" type="submit" value="確認送出"> </div>
 </form>

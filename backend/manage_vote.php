@@ -1,4 +1,4 @@
-<h1>問卷列表
+<h1>問卷管理
     <a class="btn btn-primary rounded btn-sm" href="?do=add_subject_form">
         新增問卷
     </a>
