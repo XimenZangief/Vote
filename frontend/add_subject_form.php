@@ -2,5 +2,5 @@
 <form action="../api/new_subject.php" method='post' class='col-6 m-auto text-center'>
     <label>問卷主題:<input type="text" name="subject"></label>
     <input type="hidden" name="topic_id" value="<?= $subject['id']; ?>">
-    <div><input type="submit" value="送出"></div>
+    <div ><input type="submit" value="送出"></div>
 </form>

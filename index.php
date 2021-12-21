@@ -63,7 +63,8 @@
       echo "<span class='pr-5'>歡迎！{$_SESSION['user']}</span>";
     ?>
       <div>
-        <a class="btn btn-sm btn-primary mx-1" href="logout.php">登出</a>
+      <a class='px-2' href="backend/?do=edit_user">編輯會員</a>
+      <a class="btn btn-sm btn-primary mx-1" href="logout.php">登出</a>
       </div>
     <?php
     } else {

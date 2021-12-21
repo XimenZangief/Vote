@@ -1,4 +1,11 @@
-<h1>列出所有的問題</h1>
+<h1>問卷列表
+    <?php
+    if (isset($_SESSION['user'])) { ?>
+    <a class="btn btn-primary rounded btn-sm" href="?do=add_subject_form">
+        新增問卷
+    </a>
+    <?php } ?>
+</h1>
 <?php
 $subjects = all('topics');
 echo "<ol class='list-group'>";
@@ -17,12 +24,21 @@ foreach ($subjects as $key => $value) {
 
         //總投票數顯示
         $count = q("select sum(`count`) as '總計' from `options` where `topic_id`='{$value['id']}'");
-        echo "<span class='d-inline-block col-md-2 text-center'>";
+        echo "<span class='d-inline-block col-1 text-center'>";
         echo $count[0]['總計'];
         echo "</span>";
 
+        //投票
+        if (isset($_SESSION['user'])) {
+            echo "<span>";
+            echo "<a href='index.php?do=vote&id={$value['id']}'>";
+            echo "<button class='btn btn-success'>投票</button>";
+            echo "</a></span>";
+        }
+
+
         //看結果按鈕
-        echo "<a href='?do=vote_result&id={$value['id']}' class='d-inline-block col-md-2 text-center'>";
+        echo "<a href='?do=vote_result&id={$value['id']}' class='d-inline-block col-2 text-center'>";
         echo "<button class='btn btn-primary'>觀看結果</button>";
         echo "</a>";
         echo "</li>";

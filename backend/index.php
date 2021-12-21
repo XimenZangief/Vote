@@ -34,7 +34,6 @@ if (!isset($_SESSION['user'])) {
           $images = all('ad', ['sh' => 1]);
           //使用迴圈來將每一筆廣告圖片依照html的格式顯示在網頁上
           foreach ($images as $key => $image) {
-
             //判斷如果是第一筆，會加入一個active的class
             if ($key == 0) {
               echo "<div class='carousel-item active'>";
@@ -43,11 +42,9 @@ if (!isset($_SESSION['user'])) {
             }
 
             //帶入圖片的檔名及資訊
-            echo "  <img class='d-block w-100' src='image/{$image['name']}' title='{$image['intro']}'>";
+            echo "  <img class='d-block w-100' src='../image/{$image['name']}' title='{$image['intro']}'>";
             echo "</div>";
           }
-
-
           ?>
         </div>
       </div>
@@ -74,7 +71,7 @@ if (!isset($_SESSION['user'])) {
   <!-- 選單END -->
 
   <!-- 中間區塊 -->
-  <div class="container">
+  <div class="container overflow-hidden">
     <?php
 
     $do = (isset($_GET['do'])) ? $_GET['do'] : 'manage_vote';
