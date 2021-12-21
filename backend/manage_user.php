@@ -1,6 +1,6 @@
 <h2 class="text-center font-weight-bold">會員管理</h2>
 <?php include_once "../api/db.php"; ?>
-<table class="table container-fluid text-center">
+<table class="table table-striped container-fluid text-center">
     <tr>
         <td class='col-4'>會員帳號</td>
         <td class='col-4'>管理</td>
@@ -10,7 +10,7 @@
     // dd($rows);
     foreach ($rows as $key => $value) {
         echo "<tr>";
-        echo "<td class='col-4'>";
+        echo "<td class='col-4 align-middle'>";
         echo $value['account'];
         echo "</td>";
         echo "<td class='col-4'>";

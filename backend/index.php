@@ -56,7 +56,7 @@ if (!isset($_SESSION['user'])) {
   <nav class='bg-light shadow py-3 px-2 d-flex justify-content-between mb-4'>
     <?php
     if (isset($_SESSION['user'])) {
-      echo "<span class='m-auto'>歡迎！{$_SESSION['user']}</span>";
+      echo "<span class='m-auto'>歡迎！{$_SESSION['user']}，這裡是後台</span>";
     }
     ?>
     <div>
