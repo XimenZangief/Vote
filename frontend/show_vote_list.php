@@ -7,7 +7,7 @@
     <?php } ?>
 </h1>
 <?php
-$subjects = all('topics');
+$subjects = all('topics',['sh' => 1]);
 echo "<ol class='list-group'>";
 foreach ($subjects as $key => $value) {
     if (rows('options', ['topic_id' => $value['id']]) > 0) {

@@ -32,7 +32,7 @@
         |name|varchar(12)||||user姓名|
         |email|varchar(1)||||user性別|
         |email|date||||user生日|
-    * 資料表一(topics)
+    * 資料表一(ad)
         |欄位名|資料型態|主鍵|預設值|自動遞增|備註|
         |---|---|---|---|---|---|
         |id|int(11)|1||1||
