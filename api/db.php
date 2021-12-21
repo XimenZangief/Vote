@@ -1,7 +1,7 @@
 <?php
 
-    $dsn="mysql:host=localhost;charset=utf8;dbname=mypolling";
-    $pdo=new PDO($dsn,'root','');
+    $dsn="mysql:host=localhost;charset=utf8;dbname=s1100422";
+    $pdo=new PDO($dsn,'s1100422','s1100422');
     session_start();
 
     //取得符合條件的一筆資料
