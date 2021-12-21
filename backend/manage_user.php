@@ -11,6 +11,9 @@
     foreach ($rows as $key => $value) {
         echo "<tr>";
         echo "<td class='col-4 align-middle'>";
+        if($value['admin']==1){
+            echo "<span><i class='fas fa-wrench'></i></span> ";
+        }
         echo $value['account'];
         echo "</td>";
         echo "<td class='col-4'>";

@@ -10,7 +10,7 @@ $rows = q($sql);
 ?>
 
 <h1 class="text-center mb-3"><?= $rows[0]['topic']; ?></h1>
-<ol class="list-group col-md-4 text-center m-auto" style="font-size:1.2rem">
+<ol class="list-group col-md-4 text-center m-auto " style="font-size:1.2rem">
     <?php
     foreach ($rows as $row) {
         echo "<li class='list-group-item list-group-item-action d-flex justify-content-between align-items-center '>";

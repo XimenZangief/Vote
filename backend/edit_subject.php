@@ -15,7 +15,7 @@ $options = all('options', ['topic_id' => $_GET['id']]);
 
     <?php
     foreach ($options as $key => $opt) {
-        echo "<label class='list-group-item'>\n";
+        echo "<label class='list-group-item list-group-item-action'>\n";
         echo   "選項" . ($key + 1) . "\n";
         echo   "<input type='text' name='options[]' value='{$opt['opt']}'>\n";
         echo   "<input type='hidden' name='opt_id[]' value='{$opt['id']}'>\n";

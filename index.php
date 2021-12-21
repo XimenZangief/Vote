@@ -1,6 +1,4 @@
-<?php include_once "./api/db.php"; 
-
-//登入檢查完成，將頁面導回首頁
+<?php include_once "./api/db.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>問卷系統</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     .container {
       min-height: 530px;
@@ -29,20 +28,16 @@
           $images = all('ad', ['sh' => 1]);
           //使用迴圈來將每一筆廣告圖片依照html的格式顯示在網頁上
           foreach ($images as $key => $image) {
-
             //判斷如果是第一筆，會加入一個active的class
             if ($key == 0) {
               echo "<div class='carousel-item active'>";
             } else {
               echo "<div class='carousel-item'>";
             }
-
             //帶入圖片的檔名及資訊
             echo "  <img class='d-block w-100' src='image/{$image['name']}' title='{$image['intro']}'>";
             echo "</div>";
           }
-
-
           ?>
         </div>
       </div>
@@ -66,8 +61,8 @@
       echo "<span class='pr-5'>歡迎！{$_SESSION['user']}</span>";
     ?>
       <div>
-      <a class='px-2' href="?do=edit_user">編輯會員</a>
-      <a class="btn btn-sm btn-primary mx-1" href="logout.php">登出</a>
+        <a class='px-2' href="?do=edit_user">編輯會員</a>
+        <a class="btn btn-sm btn-primary mx-1" href="logout.php">登出</a>
       </div>
     <?php
     } else {

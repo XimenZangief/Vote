@@ -8,9 +8,9 @@ $subjects = all('topics');
 echo "<ol class='list-group'>";
 foreach ($subjects as $key => $value) {
 
-    echo "<li class='list-group-item'>";
+    echo "<li class='list-group-item list-group-item-action'>";
     //題目
-    echo "<a class='d-inline-block col-6' href='../index.php?do=vote&id={$value['id']}'>";
+    echo "<a class='d-inline-block col-6' href='?do=vote_result&id={$value['id']}'>";
     echo $value['topic'];
     echo "</a>";
     //總投票數顯示
@@ -25,7 +25,7 @@ foreach ($subjects as $key => $value) {
     echo "</a>";
 
     //看結果按鈕
-    echo "<a href='../index.php?do=vote_result&id={$value['id']}' class='d-inline-block col-2 text-center'>";
+    echo "<a href='?do=vote_result&id={$value['id']}' class='d-inline-block col-2 text-center'>";
     echo "<button class='btn btn-primary'>觀看結果</button>";
     echo "</a>";
     
