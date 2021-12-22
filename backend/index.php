@@ -50,7 +50,7 @@ background: -o-linear-gradient(90deg, #007BFF 0%, #E8F3FF 60%);
             }
 
             //帶入圖片的檔名及資訊
-            echo "  <img class='d-block img-fluid' src='../image/{$image['name']}' title='{$image['intro']}'>";
+            echo "  <img class='d-block' style='width:auto; height:100%;' src='../image/{$image['name']}' title='{$image['intro']}'>";
             echo "</div>";
           }
           ?>
