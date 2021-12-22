@@ -1,4 +1,4 @@
-<?php include_once "../api/db.php";
+﻿<?php include_once "../api/db.php";
 
 if (!isset($_SESSION['user'])) {
   to("../index.php");
@@ -20,10 +20,17 @@ if (!isset($_SESSION['user'])) {
     .container {
       min-height: 530px;
     }
+.gradient
+{
+background: linear-gradient(90deg, #007BFF 0%, #E8F3FF 60%);
+background: -moz-linear-gradient(90deg, #007BFF 0%, #E8F3FF 60%);
+background: -webkit-linear-gradient(90deg, #007BFF 0%, #E8F3FF 60%);
+background: -o-linear-gradient(90deg, #007BFF 0%, #E8F3FF 60%);
+}
   </style>
 </head>
 
-<body>
+<body class="gradient">
 
   <!-- 大字報圖片輪播+回首頁 -->
   <div class="jumbotron p-0 mb-0" style="height:250px">
