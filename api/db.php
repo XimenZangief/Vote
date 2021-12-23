@@ -92,7 +92,7 @@ function all($table,...$arg){
 
 
      $sql="INSERT into $table(`" . implode('`,`',array_keys($array)) . "`) 
-                        value('" . implode("','",$array) ."')";
+                        values('" . implode("','",$array) ."')";
 
     echo $sql."<br>";
     return $pdo->exec($sql);

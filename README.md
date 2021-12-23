@@ -32,8 +32,8 @@
         |password|varchar(12)||||user密碼|
         |email|varchar(24)||||email|
         |name|varchar(12)||||user姓名|
-        |email|varchar(1)||||user性別|
-        |email|date||||user生日|
+        |gendar|tinyint(1)||||user性別|
+        |birthday|date||0000-00-00||user生日|
     * 資料表一(ad)
         |欄位名|資料型態|主鍵|預設值|自動遞增|備註|
         |---|---|---|---|---|---|
@@ -49,6 +49,7 @@
     * javascript or jQuery的應用(DOM的操作、CSS的切換)
 
 4. 請上傳至220的伺服器個人空間，並自行建立所需資料表
+    http://220.128.133.15/s1100422/
 
 
 ### 必備要求
