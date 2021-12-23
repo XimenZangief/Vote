@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2021-12-21 11:38:23
+-- 產生時間： 2021-12-22 01:09:34
 -- 伺服器版本： 10.4.21-MariaDB
--- PHP 版本： 7.4.25
+-- PHP 版本： 7.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `ad` (
   `id` int(11) UNSIGNED NOT NULL,
-  `name` varchar(64) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `sh` tinyint(1) UNSIGNED NOT NULL,
+  `name` varchar(64) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `sh` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   `intro` varchar(64) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
@@ -70,10 +70,10 @@ CREATE TABLE `users` (
   `admin` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   `account` varchar(12) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `password` varchar(12) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `email` varchar(24) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `name` varchar(12) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `email` varchar(24) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `name` varchar(12) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `gender` varchar(1) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `birthday` date NOT NULL
+  `birthday` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --

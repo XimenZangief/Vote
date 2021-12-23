@@ -1,4 +1,4 @@
-<?php include_once "./api/db.php";
+﻿<?php include_once "./api/db.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,10 +14,18 @@
     .container {
       min-height: 530px;
     }
+
+    .gradient
+{
+background: linear-gradient(90deg, #007BFF 0%, #E8F3FF 60%);
+background: -moz-linear-gradient(90deg, #007BFF 0%, #E8F3FF 60%);
+background: -webkit-linear-gradient(90deg, #007BFF 0%, #E8F3FF 60%);
+background: -o-linear-gradient(90deg, #007BFF 0%, #E8F3FF 60%);
+}
   </style>
 </head>
 
-<body>
+<body class="gradient">
   <!-- 大字報圖片輪播+回首頁 -->
   <div class="jumbotron p-0 mb-0" style="height:250px">
     <a href="index.php">
@@ -35,7 +43,7 @@
               echo "<div class='carousel-item'>";
             }
             //帶入圖片的檔名及資訊
-            echo "  <img class='d-block img-fluid' src='image/{$image['name']}' title='{$image['intro']}'>";
+            echo "  <img class='d-block' style='width:auto; height:100%;' src='image/{$image['name']}' title='{$image['intro']}'>";
             echo "</div>";
           }
           ?>
@@ -61,50 +69,51 @@
       echo "<span class='pr-5'>歡迎！{$_SESSION['user']}</span>";
     ?>
       <div>
-        <a class='px-2' href="?do=edit_user">編輯會員</a>
-        <a class="btn btn-sm btn-primary mx-1" href="logout.php">登出</a>
-      </div>
-    <?php
-    } else {
-    ?>
-      <div>
-        <a class="btn btn-sm btn-primary mx-1" href="?do=login">會員登入</a>
-        <a class="btn btn-sm btn-info mx-1" href="?do=reg">註冊新會員</a>
-      </div>
-    <?php
-    }
-    ?>
-  </nav>
-  <!-- 選單END -->
-
-  <!-- 中間區塊 -->
-  <div class="container">
-    <?php
-    //根據網址帶的do參數內容來決定要include那一個檔案內容
-    $do = (isset($_GET['do'])) ? $_GET['do'] : 'show_vote_list';
-
-    //建立要引入的檔案路徑
-    $file = "./frontend/" . $do . ".php";
-    if (file_exists($file)) {
-      include $file;
-    } else {
-      include "./frontend/show_vote_list.php";
-    }
-    ?>
+        <a class='px-2' href=" ?do=edit_user">編輯會員
+    </a>
+    <a class="btn btn-sm btn-primary mx-1" href="logout.php">登出</a>
   </div>
-  <!-- 中間區塊END -->
-
-  <!-- 頁尾 -->
-  <div class="contaioner p-3 text-center text-light bg-primary ">
-    <a class="twitter-timeline" data-width="1000" data-height="930" href="https://twitter.com/simabossneko?ref_src=twsrc%5Etfw">Tweets by simabossneko</a>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<?php
+    } else {
+?>
+  <div>
+    <a class="btn btn-sm btn-primary mx-1" href="?do=login">會員登入</a>
+    <a class="btn btn-sm btn-info mx-1" href="?do=reg">註冊新會員</a>
   </div>
-  <!-- 頁尾END -->
+<?php
+    }
+?>
+</nav>
+<!-- 選單END -->
 
-  <!-- bootstrap4 JS bundle -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<!-- 中間區塊 -->
+<div class="container">
+  <?php
+  //根據網址帶的do參數內容來決定要include那一個檔案內容
+  $do = (isset($_GET['do'])) ? $_GET['do'] : 'show_vote_list';
+
+  //建立要引入的檔案路徑
+  $file = "./frontend/" . $do . ".php";
+  if (file_exists($file)) {
+    include $file;
+  } else {
+    include "./frontend/show_vote_list.php";
+  }
+  ?>
+</div>
+<!-- 中間區塊END -->
+
+<!-- 頁尾 -->
+<div class="contaioner p-3 text-center text-light bg-primary ">
+  <a class="twitter-timeline" data-width="1000" data-height="930" href="https://twitter.com/simabossneko?ref_src=twsrc%5Etfw">Tweets by simabossneko</a>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<!-- 頁尾END -->
+
+<!-- bootstrap4 JS bundle -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 
 </html>
